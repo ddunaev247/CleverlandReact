@@ -7,10 +7,10 @@ export class EmployeesListItem extends Component {
         super(props);
         this.state = { increase: false, like: false };
     }
-    isIncrease = () => {
+    onIncrease = () => {
         this.setState(({ increase }) => ({ increase: !increase }));
     };
-    isRise = () => {
+    onRise = () => {
         this.setState(({ like }) => ({ like: !like }));
     };
     render() {
@@ -23,7 +23,7 @@ export class EmployeesListItem extends Component {
                     { increase, like }
                 )}
             >
-                <span className="list-group-item-label" onClick={this.isRise}>
+                <span className="list-group-item-label" onClick={this.onRise}>
                     {name}
                 </span>
                 <input
@@ -36,7 +36,7 @@ export class EmployeesListItem extends Component {
                     <button
                         type="button"
                         className="btn-cookie btn-sm "
-                        onClick={this.isIncrease}
+                        onClick={this.onIncrease}
                     >
                         <i className="fas fa-cookie"></i>
                     </button>
