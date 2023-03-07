@@ -16,7 +16,7 @@ export class App extends Component {
                 { name: 'Michael K.', salary: 5200, increase: false, id: 3 },
             ],
         };
-        this.maxId = this.state.data.length;
+        this.maxId = this.state.data.length + 1;
     }
     deleteItem = id => {
         this.setState(({ data }) => {
