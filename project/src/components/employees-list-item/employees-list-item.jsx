@@ -3,27 +3,21 @@ import classNames from 'classnames';
 import './employees-list-item.css';
 
 export class EmployeesListItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { increase: false, like: false };
-    }
-    onIncrease = () => {
-        this.setState(({ increase }) => ({ increase: !increase }));
-    };
-    onRise = () => {
-        this.setState(({ like }) => ({ like: !like }));
-    };
     render() {
-        const { name, salary } = this.props;
-        const { increase, like } = this.state;
+        const { name, salary, onDelete, onToggleProp, increase, rise } =
+            this.props;
         return (
             <li
                 className={classNames(
                     'list-group-item d-flex justify-content-between',
-                    { increase, like }
+                    { increase, like: rise }
                 )}
             >
-                <span className="list-group-item-label" onClick={this.onRise}>
+                <span
+                    className="list-group-item-label"
+                    data-toggle="rise"
+                    onClick={onToggleProp}
+                >
                     {name}
                 </span>
                 <input
@@ -36,12 +30,17 @@ export class EmployeesListItem extends Component {
                     <button
                         type="button"
                         className="btn-cookie btn-sm "
-                        onClick={this.onIncrease}
+                        data-toggle="increase"
+                        onClick={onToggleProp}
                     >
                         <i className="fas fa-cookie"></i>
                     </button>
 
-                    <button type="button" className="btn-trash btn-sm ">
+                    <button
+                        type="button"
+                        className="btn-trash btn-sm "
+                        onClick={onDelete}
+                    >
                         <i className="fas fa-trash"></i>
                     </button>
                     <i className="fas fa-star"></i>
