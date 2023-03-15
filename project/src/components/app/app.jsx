@@ -4,13 +4,16 @@ import { SearchPanel } from "../search-panel/search-panel";
 import { AppFilter } from "../app-filter/app-filter";
 import { EmployeesList } from "../employees-list/employees-list";
 import { EmployeesAddForm } from "../employees-add-form/employees-add-form";
+
 import { employees } from "../../const/employee";
+
 import "./app.css";
 
 export class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
             data: employees,
             allEmployees: employees.length,
             rewarded: employees.filter((item) => item.increase === true).length,
@@ -24,6 +27,7 @@ export class App extends Component {
                 .length,
         }));
     };
+
     deleteItem = (id) => {
         this.setState(({ data }) => {
             // const index = data.findIndex(elem => elem.id === id);
