@@ -9,8 +9,8 @@ export const AppFilter = ({ filter, onFilterSelect }) => (
                 type="button"
                 className={classNames(
                     "btn",
-                    { "btn-light": filter === name },
-                    { "btn-outline-light": filter !== name }
+                    { "btn-light": filter === name ,
+                    "btn-outline-light": filter !== name }
                 )}
                 key={name}
                 onClick={() => onFilterSelect(name)}
