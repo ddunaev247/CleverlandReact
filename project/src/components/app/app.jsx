@@ -22,7 +22,7 @@ export class App extends Component {
     getEmployees = () => {
         this.setState((state) => ({
             allEmployees: state.data.length,
-            rewarded: state.data.filter((item) => item.increase === true).length,
+            rewarded: state.data.filter((item) => item.increase).length,
         }));
     };
     deleteItem = (id) => {
@@ -56,7 +56,7 @@ export class App extends Component {
         this.getEmployees();
     };
     searchEmployees = (items, searchString) => {
-        if (searchString.length === 0) {
+        if (searchString.length) {
             return items;
         }
         return items.filter((item) => item.name.toLowerCase().includes(searchString.toLowerCase()));
